@@ -59,11 +59,11 @@ def post_detail(request, pk):
     return render(request, template_name, context)
 
 
-def category_posts(request, category):
+def category_posts(request, ctgr):
     template_name = 'blog/category.html'
-    filtered_posts = [post for post in posts if post['category'] == category]
+    filtered_posts = [post for post in posts if post['category'] == ctgr]
     context = {
         'posts': filtered_posts,
-        'category_name': category
+        'category_name': ctgr
     }
     return render(request, template_name, context)
