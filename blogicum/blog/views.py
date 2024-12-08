@@ -44,17 +44,20 @@ posts = [
     },
 ] 
 
+
 def index(request):
     template_name = 'blog/index.html'
     context = {'posts': posts}
     return render(request, template_name, context)
 
+
 def post_detail(request, pk):
     template_name = 'blog/detail.html'
     if pk < 0 or pk >= len(posts):
         raise Http404("Пост не найден.")
-    context = { 'post': posts[pk] }
+    context = {'post': posts[pk]}
     return render(request, template_name, context)
+
 
 def category_posts(request, category):
     template_name = 'blog/category.html'
